@@ -1,2 +1,4 @@
 # coronakartan
-Dagens pandemi Corona gör oss alla oroliga. Anna överväger att fira jul i Stockholm och måste då ta sig från sin permanenta bostad i Malmö. Det är lite drygt att alltid kolla på WHO eller nyheterna för att uppdatera läget. Anna reser sträckan även mycket i tjänsten ungefär varannan månad och funderar därför på att använda getpostmans api för att se Coronaläget. Samtidigt som hon reser är hon intresserad av kartor och geografi och använder sig utav google maps för att hitta när hon är i andra städer, och de råkar ha ett API. 
+Uppgiften går ut på att använda sig utav två stycken API. Denna är baserad på: 
+Coronavirus: https://documenter.getpostman.com/view/10808728/SzS8rjbc
+Google Maps: https://developers.google.com/maps/

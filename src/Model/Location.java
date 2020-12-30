@@ -1,4 +1,4 @@
-package Coronakartan;
+package Model;
 
 public class Location {
     public String name;

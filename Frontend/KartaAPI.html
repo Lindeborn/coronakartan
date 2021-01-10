@@ -19,6 +19,10 @@
         fillColor: 'red',
         strokeWeight: 1
         });
+        map.data.addListener('mouseover', function(event) {
+        map.data.revertStyle();
+        map.data.overrideStyle(event.feature, {strokeWeight: 4});
+        });
     }
     </script>
 

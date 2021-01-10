@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.simple.JSONObject;
+
 /**
  * Class is model which holds data on number of confirmed cases of Coronavirus-19, number of diseased and number of hospitalized.
  * When user selects a region on the map this information is displayed.
@@ -8,21 +10,20 @@ package Model;
  */
 public class RegionalData {
 
-    private String regionName;
+    private String countryName;
+    private String regionalData;
     private int numOfConfirmedCases;
     private int numOfDiseased;
-    private int numOfHospitalized;
+    private int numOfRecovered;
 
-    /**
-     *
-     * @param regionName name of region selected
-     * @param numOfHospitalized number of hospitalized in the selected region
-     * @param numOfDiseased number of diseased in the selected region
-     * @param numOfConfirmedCases number of confirmed cases in the selected region
-     */
-    public RegionalData(String regionName, int numOfHospitalized, int numOfDiseased, int numOfConfirmedCases){
-        this.regionName = regionName;
-        this.numOfHospitalized = numOfHospitalized;
+    private JSONObject object;
+
+    //TODO fixa get from JSON
+
+    public RegionalData(JSONObject object){
+        this.object = object;
+        this.countryName = object.get("Sweden").toString();         //oklart om det är så det ska göras- förmoldigen ej
+       // this.numOfRecovered = object.get();
         this.numOfDiseased = numOfDiseased;
         this.numOfConfirmedCases = numOfConfirmedCases;
     }
@@ -35,10 +36,11 @@ public class RegionalData {
     @Override
     public String toString() {
         return "RegionalData{" +
-                "regionName='" + regionName + '\'' +
+                "countryName='" + countryName + '\'' +
                 ", numOfConfirmedCases=" + numOfConfirmedCases +
                 ", numOfDiseased=" + numOfDiseased +
-                ", numOfHospitalized=" + numOfHospitalized +
+                ", numOfRecovered=" + numOfRecovered +
+                ", object=" + object +
                 '}';
     }
 }

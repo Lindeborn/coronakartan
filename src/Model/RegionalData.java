@@ -1,6 +1,7 @@
 package Model;
 
 import org.json.simple.JSONObject;
+import com.google.gson.*;
 
 /**
  * Class is model which holds data on number of confirmed cases of Coronavirus-19, number of diseased and number of hospitalized.
@@ -22,7 +23,7 @@ public class RegionalData {
 
     public RegionalData(JSONObject object){
         this.object = object;
-        this.countryName = object.get("Sweden").toString();         //oklart om det är så det ska göras- förmoldigen ej
+        this.countryName = object.get("Country").toString();         //oklart om det är så det ska göras- förmoldigen ej
        // this.numOfRecovered = object.get();
         this.numOfDiseased = numOfDiseased;
         this.numOfConfirmedCases = numOfConfirmedCases;
@@ -42,5 +43,30 @@ public class RegionalData {
                 ", numOfRecovered=" + numOfRecovered +
                 ", object=" + object +
                 '}';
+    }
+
+    //jsonobject.get("Sweden")
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public String getRegionalData() {
+        return regionalData;
+    }
+
+    public int getNumOfConfirmedCases() {
+        return numOfConfirmedCases;
+    }
+
+    public int getNumOfDiseased() {
+        return numOfDiseased;
+    }
+
+    public int getNumOfRecovered() {
+        return numOfRecovered;
+    }
+
+    public JSONObject getObject() {
+        return object;
     }
 }

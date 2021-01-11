@@ -1,7 +1,6 @@
 package Model;
 
 import org.json.simple.JSONObject;
-import com.google.gson.*;
 
 /**
  * Class is model which holds data on number of confirmed cases of Coronavirus-19, number of diseased and number of hospitalized.

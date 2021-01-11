@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;

@@ -1,7 +1,5 @@
 package Model;
 
-import org.json.simple.JSONObject;
-
 /**
  * Class is model which holds data on number of confirmed cases of Coronavirus-19, number of diseased and number of hospitalized.
  * When user selects a region on the map this information is displayed.
@@ -9,21 +7,13 @@ import org.json.simple.JSONObject;
  * A toString() returns the String representation of this data.
  */
 public class RegionalData {
-
-    private String countryName;
-    private String regionalData;
+    private String regionName;
     private int numOfConfirmedCases;
     private int numOfDiseased;
     private int numOfRecovered;
 
-    private JSONObject object;
-
-    //TODO fixa get from JSON
-
-    public RegionalData(JSONObject object){
-        this.object = object;
-        this.countryName = object.get("Country").toString();         //oklart om det är så det ska göras- förmoldigen ej
-       // this.numOfRecovered = object.get();
+    public RegionalData(String regionName, int numOfConfirmedCases, int numOfDiseased, int numOfRecovered){
+        this.numOfRecovered = numOfRecovered;
         this.numOfDiseased = numOfDiseased;
         this.numOfConfirmedCases = numOfConfirmedCases;
     }
@@ -33,24 +23,8 @@ public class RegionalData {
      */
     public RegionalData(){}
 
-    @Override
-    public String toString() {
-        return "RegionalData{" +
-                "countryName='" + countryName + '\'' +
-                ", numOfConfirmedCases=" + numOfConfirmedCases +
-                ", numOfDiseased=" + numOfDiseased +
-                ", numOfRecovered=" + numOfRecovered +
-                ", object=" + object +
-                '}';
-    }
-
-    //jsonobject.get("Sweden")
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public String getRegionalData() {
-        return regionalData;
+    public String getRegionName() {
+        return regionName;
     }
 
     public int getNumOfConfirmedCases() {
@@ -65,7 +39,4 @@ public class RegionalData {
         return numOfRecovered;
     }
 
-    public JSONObject getObject() {
-        return object;
-    }
 }

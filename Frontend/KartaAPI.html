@@ -23,20 +23,29 @@
         strokeWeight: 1
         });
 
+
+        let infoWindow = null;
+
         map.data.addListener('mouseover', function(event) {
         map.data.revertStyle();
-
         map.data.overrideStyle(event.feature, {
         strokeWeight: 4});
+        if(infoWindow!==null){
+            infoWindow.close();
+          }
+
+          infoWindow = new google.maps.InfoWindow({
+            position: event.latLng,
+          });
+
+          infoWindow.setContent(
+            JSON.stringify(event.latLng.toJSON(), null, 2)
+          );
+          infoWindow.open(map);
         });
 
-        <!--när man klickar på en region ska info dyka upp-->
-        map.data.addListener('click', function(event) {
-
-        });
-
-        <!--visar namnet på regionen, tror jag måste modifiera geojson-->
-        map.data.addListener('mouseover', function(event) {
+        <!--när man klickar på en region ska info dyka upp i inforutan-->
+        map.data.addListener("click", (event) => {
 
         });
     }

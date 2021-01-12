@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 //oklart om den här klassen behövs i slutändan
 

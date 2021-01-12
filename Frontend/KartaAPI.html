@@ -30,13 +30,14 @@
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {
         strokeWeight: 4});
+
         if(infoWindow!==null){
             infoWindow.close();
           }
 
           infoWindow = new google.maps.InfoWindow({
             position: event.latLng,
-          });
+        });
 
           infoWindow.setContent(event.feature.getProperty('lan_namn'));
 
@@ -58,12 +59,12 @@
     ></script>
 
     <div class="item hide">
+        <button class="close">×</button>
         <p> Ska man kunna flytta på denna också?
             ska vart land få en egen ruta?
             eller ska det vara en tab i denna rutan?
             Färger kan ändras beroende på vilket tema vi vill ha
         </p>
-
     </div>
 
     <footer> Här kan vi skriva våra namn + om vi ska ha länkar till tabeller osv som ert exempel

@@ -1,50 +1,31 @@
 package Controller;
 
-import org.json.simple.JSONObject;
 import com.google.gson.Gson;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import com.google.gson.JsonParser;
+
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
-
-import java.util.List;
+import java.util.Scanner;
 
 
 public class APIRunner {
 
-    
 
-    public String getAPIInfo(String body)
-    {
-        Gson gson = new Gson();
-
-        HttpClient client = HttpClient.newHttpClient();
-        JSONObject jObject = new JSONObject();
-        try
-        {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI("https://api.covid19api.com/dayone/country/south-africa/status/confirmed/live" + body))
-                    .build();
-
-            HttpResponse<String> reply = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            String replyContent = reply.body();
-
-            JSONParser parser = new JSONParser();
-
-            jObject = (JSONObject) parser.parse(replyContent);
-
-        } catch (InterruptedException | ParseException | IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws Exception {
+        try{
+        String url = "http://openexchangerates.org/api/latest.json?app_id=db98850be67e4d3d9a3ac0cf26ea2e40";
+        String json = new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
+        JsonParser jsonParser = new JsonParser();
+        System.out.println(jsonParser.parse(json));
+        }catch(Exception e) {
+            System.out.println("hej");
     }
 
-
+    }
 }

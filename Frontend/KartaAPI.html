@@ -38,15 +38,16 @@
             position: event.latLng,
           });
 
-          infoWindow.setContent(
-            JSON.stringify(event.latLng.toJSON(), null, 2)
-          );
+          infoWindow.setContent(event.feature.getProperty('lan_namn'));
+
           infoWindow.open(map);
         });
 
         <!--när man klickar på en region ska info dyka upp i inforutan-->
         map.data.addListener("click", (event) => {
-
+            infoWindow.setContent(
+            JSON.stringify(event.latLng.toJSON(), null, 2)
+          );
         });
     }
     </script>

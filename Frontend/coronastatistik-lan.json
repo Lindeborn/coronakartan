@@ -1,0 +1,320 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "1",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 1,
+        "Region": "Blekinge län",
+        "Totalt_antal_fall": 5789,
+        "Fall_per_100000_inv": 3627.056640625,
+        "Totalt_antal_intensivvårdade": 23,
+        "Totalt_antal_avlidna": 52,
+        "Shape__Area": 2990205637.8584,
+        "Shape__Length": 351317.137322222
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "3",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 3,
+        "Region": "Dalarnas län",
+        "Totalt_antal_fall": 11661,
+        "Fall_per_100000_inv": 4049.43627929688,
+        "Totalt_antal_intensivvårdade": 91,
+        "Totalt_antal_avlidna": 259,
+        "Shape__Area": 30111541636.1841,
+        "Shape__Length": 1094842.47662981
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "4",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 4,
+        "Region": "Gotlands län",
+        "Totalt_antal_fall": 2380,
+        "Fall_per_100000_inv": 3987.53466796875,
+        "Totalt_antal_intensivvårdade": 22,
+        "Totalt_antal_avlidna": 34,
+        "Shape__Area": 3110741392.74902,
+        "Shape__Length": 390069.071487898
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "5",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 5,
+        "Region": "Gävleborgs län",
+        "Totalt_antal_fall": 16401,
+        "Fall_per_100000_inv": 5707.0380859375,
+        "Totalt_antal_intensivvårdade": 136,
+        "Totalt_antal_avlidna": 371,
+        "Shape__Area": 19670510830.5771,
+        "Shape__Length": 803680.986925637
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 6,
+        "Region": "Hallands län",
+        "Totalt_antal_fall": 14860,
+        "Fall_per_100000_inv": 4451.12744140625,
+        "Totalt_antal_intensivvårdade": 79,
+        "Totalt_antal_avlidna": 150,
+        "Shape__Area": 5667937688.33313,
+        "Shape__Length": 513879.415037919
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "7",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 7,
+        "Region": "Jämtlands län",
+        "Totalt_antal_fall": 4954,
+        "Fall_per_100000_inv": 3787.17211914063,
+        "Totalt_antal_intensivvårdade": 42,
+        "Totalt_antal_avlidna": 85,
+        "Shape__Area": 53569914710.2275,
+        "Shape__Length": 1491315.12625843
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "8",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 8,
+        "Region": "Jönköpings län",
+        "Totalt_antal_fall": 18953,
+        "Fall_per_100000_inv": 5212.61083984375,
+        "Totalt_antal_intensivvårdade": 182,
+        "Totalt_antal_avlidna": 354,
+        "Shape__Area": 10987064238.2671,
+        "Shape__Length": 689446.921677403
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "9",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 9,
+        "Region": "Kalmar län",
+        "Totalt_antal_fall": 7777,
+        "Fall_per_100000_inv": 3168.51782226563,
+        "Totalt_antal_intensivvårdade": 48,
+        "Totalt_antal_avlidna": 120,
+        "Shape__Area": 11620498986.3779,
+        "Shape__Length": 969675.02276173
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "10",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 10,
+        "Region": "Kronobergs län",
+        "Totalt_antal_fall": 9924,
+        "Fall_per_100000_inv": 4925.81982421875,
+        "Totalt_antal_intensivvårdade": 62,
+        "Totalt_antal_avlidna": 216,
+        "Shape__Area": 9459251829.71924,
+        "Shape__Length": 542133.321049972
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "11",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 11,
+        "Region": "Norrbottens län",
+        "Totalt_antal_fall": 8334,
+        "Fall_per_100000_inv": 3332.3603515625,
+        "Totalt_antal_intensivvårdade": 97,
+        "Totalt_antal_avlidna": 144,
+        "Shape__Area": 104226859903.378,
+        "Shape__Length": 1968970.33940763
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "12",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 12,
+        "Region": "Skåne län",
+        "Totalt_antal_fall": 78745,
+        "Fall_per_100000_inv": 5715.15869140625,
+        "Totalt_antal_intensivvårdade": 338,
+        "Totalt_antal_avlidna": 814,
+        "Shape__Area": 11237967476.5018,
+        "Shape__Length": 581637.471117055
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "13",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 13,
+        "Region": "Stockholms län",
+        "Totalt_antal_fall": 126212,
+        "Fall_per_100000_inv": 5309.537109375,
+        "Totalt_antal_intensivvårdade": 1405,
+        "Totalt_antal_avlidna": 3361,
+        "Shape__Area": 6253064053.89307,
+        "Shape__Length": 1391893.17583562
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "14",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 14,
+        "Region": "Södermanlands län",
+        "Totalt_antal_fall": 10084,
+        "Fall_per_100000_inv": 3389.12426757813,
+        "Totalt_antal_intensivvårdade": 196,
+        "Totalt_antal_avlidna": 328,
+        "Shape__Area": 6515927306.78491,
+        "Shape__Length": 489529.064073756
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "15",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 15,
+        "Region": "Uppsala län",
+        "Totalt_antal_fall": 19327,
+        "Fall_per_100000_inv": 5036.83740234375,
+        "Totalt_antal_intensivvårdade": 226,
+        "Totalt_antal_avlidna": 388,
+        "Shape__Area": 8392959961.60718,
+        "Shape__Length": 499150.739382332
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "16",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 16,
+        "Region": "Värmlands län",
+        "Totalt_antal_fall": 6634,
+        "Fall_per_100000_inv": 2349.03369140625,
+        "Totalt_antal_intensivvårdade": 56,
+        "Totalt_antal_avlidna": 126,
+        "Shape__Area": 19397064876.6913,
+        "Shape__Length": 907573.914888146
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "17",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 17,
+        "Region": "Västerbottens län",
+        "Totalt_antal_fall": 9070,
+        "Fall_per_100000_inv": 3337.79833984375,
+        "Totalt_antal_intensivvårdade": 64,
+        "Totalt_antal_avlidna": 92,
+        "Shape__Area": 58931566086.9465,
+        "Shape__Length": 1223562.3202741
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "18",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 18,
+        "Region": "Västernorrlands län",
+        "Totalt_antal_fall": 11250,
+        "Fall_per_100000_inv": 4585.34228515625,
+        "Totalt_antal_intensivvårdade": 93,
+        "Totalt_antal_avlidna": 255,
+        "Shape__Area": 23216964453.467,
+        "Shape__Length": 970997.22920785
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 19,
+        "Region": "Västmanlands län",
+        "Totalt_antal_fall": 14952,
+        "Fall_per_100000_inv": 5420.435546875,
+        "Totalt_antal_intensivvårdade": 84,
+        "Totalt_antal_avlidna": 267,
+        "Shape__Area": 5389046978.43506,
+        "Shape__Length": 416057.671239018
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "20",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 20,
+        "Region": "Västra Götalands län",
+        "Totalt_antal_fall": 81865,
+        "Fall_per_100000_inv": 4743.37451171875,
+        "Totalt_antal_intensivvårdade": 762,
+        "Totalt_antal_avlidna": 1396,
+        "Shape__Area": 25166935777.351,
+        "Shape__Length": 1484077.644282
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "21",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 21,
+        "Region": "Örebro län",
+        "Totalt_antal_fall": 14456,
+        "Fall_per_100000_inv": 4742.70458984375,
+        "Totalt_antal_intensivvårdade": 121,
+        "Totalt_antal_avlidna": 225,
+        "Shape__Area": 9239464968.10205,
+        "Shape__Length": 555492.532505599
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "22",
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 22,
+        "Region": "Östergötlands län",
+        "Totalt_antal_fall": 15843,
+        "Fall_per_100000_inv": 3403.4736328125,
+        "Totalt_antal_intensivvårdade": 187,
+        "Totalt_antal_avlidna": 396,
+        "Shape__Area": 11640350582.3516,
+        "Shape__Length": 704518.860602546
+      }
+    }
+  ]
+}

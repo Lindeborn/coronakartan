@@ -1,31 +1,55 @@
-package Controller;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
+package controller;
 
 
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
+
+
+import org.json.*;
 
 
 public class APIRunner {
 
+    /**
+     * Read API content from URL by sending a HTTP client request and reading the response.
+     * Non-UI-blocking operation.
+     */
+    public void readFromURL() {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create("https://api.covid19api.com/total/dayone/country/sweden/status/confirmed"))
+                .build();
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)  //recieve respons and apply this to previous result. Body from Httpresponse class
+                .thenApply(this::parseJSONData).
+                join();
 
-    public static void main(String[] args) throws Exception {
-        try{
-        String url = "http://openexchangerates.org/api/latest.json?app_id=db98850be67e4d3d9a3ac0cf26ea2e40";
-        String json = new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
-        JsonParser jsonParser = new JsonParser();
-        System.out.println(jsonParser.parse(json));
-        }catch(Exception e) {
-            System.out.println("hej");
+
     }
 
+    public String parseJSONData(String response)
+    {
+        JSONArray countries = new JSONArray(response);
+        for (int i = 0; i < countries.length(); i++)
+        {
+            JSONObject country = countries.getJSONObject(i);
+            String currentCountry = country.getString("Country");
+            int cases = country.getInt("Cases");
+
+            System.out.println(currentCountry + "   " + cases + "   ");
+
+            //TODO: String status = countries.getString(Integer.parseInt("Status")); //vill ha index
+        }
+        return null;
     }
+
+    public static void main (String [] args)
+    {
+        APIRunner runner = new APIRunner();
+        runner.readFromURL();
+    }
+
 }

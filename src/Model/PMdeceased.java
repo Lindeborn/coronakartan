@@ -4,7 +4,7 @@ public class PMdeceased {
     private int deceased;
     /**
      * Represents the message sent (in JSON) from client
-     * to the endpoint. Contains channelID for requested channel
+     * to the endpoint.
      */
         public PMdeceased(int deceased) {
             this.deceased = deceased;

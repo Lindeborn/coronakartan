@@ -1,7 +1,6 @@
 package Enum;
 
 public enum Regions {
-
     Stockholm,
     Uppsala,
     Sörmland,

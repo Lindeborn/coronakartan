@@ -4,7 +4,7 @@ public class PMinfected {
     private int infected;
     /**
      * Represents the message sent (in JSON) from client
-     * to the endpoint. Contains channelID for requested channel
+     * to the endpoint.
      */
     public PMinfected(int infected) {
         this.infected = infected;

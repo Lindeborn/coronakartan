@@ -7,57 +7,6 @@
     <link href="main.css" rel="stylesheet" type="text/css">
     <title>Coronakartan</title>
 
-    <!--initMap kanske kan förflyttas till JS, men får det ej att fungera-->
-    <script>
-    function initMap() {
-        const sweden = {
-        lat: 60.187, lng: 15.047 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4.5,
-        center: sweden,
-        });
-
-        map.data.loadGeoJson("sverige-lan.geojson.json");
-        map.data.setStyle({
-        fillColor: 'orange',
-        strokeWeight: 1
-        });
-
-
-        let infoWindow = null;
-
-        map.data.addListener('mouseover', function(event) {
-        map.data.revertStyle();
-        map.data.overrideStyle(event.feature, {
-        strokeWeight: 4});
-
-        if(infoWindow!==null){
-            infoWindow.close();
-          }
-
-          infoWindow = new google.maps.InfoWindow({
-            position: event.latLng,
-        });
-
-          infoWindow.setContent(event.feature.getProperty('lan_namn'));
-
-          infoWindow.open(map);
-        });
-
-        <!--när man klickar på en region ska info dyka upp i inforutan-->
-        map.data.addListener("click", (event) => {
-            infoWindow.setContent(
-            JSON.stringify(event.latLng.toJSON(), null, 2)
-          );
-        });
-    }
-    </script>
-
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLesBtB1B8mYKBkWwSwg90weWlVRo-xio&callback=initMap&libraries=&v=weekly"
-        defer
-    ></script>
-
     <div class="item hide">
         <button class="close">×</button>
         <p> Ska man kunna flytta på denna också?
@@ -75,10 +24,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <script src="script.js" defer></script>
+
 </head>
 <body>
 <h3>Coronakartan</h3>
 <!--The div element for the map -->
-<div id="map"></div>
+<div id="map">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLesBtB1B8mYKBkWwSwg90weWlVRo-xio&callback=initMap&libraries=&v=weekly" defer>
+    </script>
+</div>
 </body>
 </html>

@@ -31,8 +31,8 @@ body {
 
 .stats .close {
     position: absolute;
-    top: -5px;
-    right: 5px;
+    top: 0px;
+    right: 3px;
     transition: all 200ms;
     font-size: 25px;
     font-weight: bold;

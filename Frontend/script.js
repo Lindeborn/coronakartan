@@ -1,3 +1,5 @@
+var antal;
+
 $(document).ready(function(){
     $("button").click(function(){
       $(".item").toggleClass("hide stats");
@@ -60,27 +62,29 @@ function initMap(){
 function getColor(lan) {
    $.ajax({
     type: 'GET',
-    url: 'coronastatistik-lan.json',
+    url: 'https://services5.arcgis.com/fsYDFeRKu1hELJJs/arcgis/rest/services/FOHM_Covid_19_FME_1/FeatureServer/0/query?f=geojson&where=Region%20%3C%3E%20%27dummy%27&returnGeometry=false&outFields=*',
     dataType: 'json',
     success: function(data) {
        var json = JSON.parse(JSON.stringify(data));
 
        for (let i = 0; i < json.features.length; i++){
+       console.log(json.features[i].properties.Region);
            if(json.features[i].properties.Region == lan){
-             var antal = json.features[i].properties.Totalt_antal_fall;
-
-             return antal > 70000 ? "red" :
-                  antal > 20000  ? "darkOrange" :
-                  antal > 10000  ? "orange" :
-                  antal > 6000  ? "yellow" :
-                  antal > 3000   ? "greenYellow" :
-                  antal > 1000   ? "limeGreen" :
-                  antal > 100   ? "lightGreen" :
-                             "skyBlue";
+           console.log(json.features[i].properties.Region + ": " + json.features[i].properties.Totalt_antal_fall);
+             antal = json.features[i].properties.Totalt_antal_fall;
             }
-         }
-      }
-  });
+          }
+        }
+    });
+
+  return antal > 70000 ? "red" :
+         antal > 30000 ? "darkOrange" :
+         antal > 15000 ? "orange" :
+         antal > 6000 ? "yellow" :
+         antal > 3000 ? "greenYellow" :
+         antal > 1000 ? "limeGreen" :
+         antal > 100 ? "lightGreen" :
+                        "skyBlue";
 }
 
 

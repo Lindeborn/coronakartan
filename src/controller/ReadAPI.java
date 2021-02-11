@@ -21,7 +21,7 @@ public class ReadAPI {
                 uri(URI.create(URL))
                 .build();
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)  //recieve response and apply this to previous result. Body from Httpresponse class
+                .thenApply(HttpResponse::body)
                 .thenApply(this::parseJSONData).
                 join();
     }
@@ -29,19 +29,28 @@ public class ReadAPI {
     public int parseJSONData(String response)
     {
         int cases= 0;
+        String date = "";
+        String currentCountry = "";
 
         JSONArray countries = new JSONArray(response.toString());
         for (int i = 0; i < countries.length(); i++)
         {
             JSONObject country = countries.getJSONObject(i);
-            String currentCountry = country.getString("Country");
-            cases = country.getInt("Cases");
 
-            System.out.println(currentCountry + "   " + cases + "   ");
+            currentCountry = country.getString("Country");
+            cases = country.getInt("Cases");
+            date = country.getString("Date");
+
+            //System.out.println(currentCountry + "   " + "date " + date + "  " + cases + "   " );
+
+            //showNumOfCases(cases);
+
+            //store cases in arraylist in each model class OR
+
+            //call method showOnTextArea(cases) here. It will change status depending on which class performs the call
 
             //status.setNumberofInfected(cases); //stores in model variable numberOfInfected
 
-            //TODO: String status = countries.getString(Integer.parseInt("Status")); //vill ha index -wtf
         }
         return cases;
     }

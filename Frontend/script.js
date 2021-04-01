@@ -85,14 +85,14 @@ function getColor(lan) {
           }
     }
 
-  return antal > 70000 ? "red" :
-         antal > 30000 ? "darkOrange" :
-         antal > 15000 ? "orange" :
-         antal > 6000 ? "yellow" :
-         antal > 3000 ? "greenYellow" :
-         antal > 1000 ? "limeGreen" :
-         antal > 100 ? "lightGreen" :
-                        "skyBlue";
+  return antal > 70000 ? "#be64ac" :
+         antal > 30000 ? "#8c62aa" :
+         antal > 15000 ? "#3b4994" :
+         antal > 6000 ? "#dfb0d6" :
+         antal > 3000 ? "#a5add3" :
+         antal > 1000 ? "#5698b9" :
+         antal > 100 ? "#e8e8e8" :
+                        "#5ac8c8";
 }
 
 

@@ -1,4 +1,14 @@
-var antal;
+var json;
+var map;
+$.ajax({
+    type: 'GET',
+    url: 'https://services5.arcgis.com/fsYDFeRKu1hELJJs/arcgis/rest/services/FOHM_Covid_19_FME_1/FeatureServer/0/query?f=geojson&where=Region%20%3C%3E%20%27dummy%27&returnGeometry=false&outFields=*',
+    dataType: 'json',
+    success: function(data) {
+        json = JSON.parse(JSON.stringify(data));
+        if (map) styleMap();
+    }
+});
 
 $(document).ready(function(){
     $("button").click(function(){
@@ -6,23 +16,26 @@ $(document).ready(function(){
       });
   });
 
+function styleMap() {
+    map.data.setStyle(function(feature){
+        return{
+        fillColor: getColor(feature.getProperty('lan_namn')),
+        strokeWeight: 1,
+        fillOpacity: 0.7
+        };
+     });
+}
+
 function initMap(){
     const sweden = {
     lat: 60.187, lng: 15.047 };
-    const map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4.5,
     center: sweden,
     });
 
     map.data.loadGeoJson("sverige-lan.geojson.json");
-    map.data.setStyle(function(feature){
-       return{
-       fillColor: getColor(feature.getProperty('lan_namn')),
-       strokeWeight: 1,
-       fillOpacity: 0.7
-       };
-    });
-
+    styleMap();
     let infoWindow = null;
 
     map.data.addListener('mouseover', function(event) {
@@ -51,7 +64,7 @@ function initMap(){
         });
     });
 
-    <!--när man klickar på en region ska info dyka upp i inforutan-->
+    // <!--när man klickar på en region ska info dyka upp i inforutan-->
     map.data.addListener("click", (event) => {
         infoWindow.setContent(
         JSON.stringify(event.latLng.toJSON(), null, 2)
@@ -60,22 +73,17 @@ function initMap(){
     }
 
 function getColor(lan) {
-   $.ajax({
-    type: 'GET',
-    url: 'https://services5.arcgis.com/fsYDFeRKu1hELJJs/arcgis/rest/services/FOHM_Covid_19_FME_1/FeatureServer/0/query?f=geojson&where=Region%20%3C%3E%20%27dummy%27&returnGeometry=false&outFields=*',
-    dataType: 'json',
-    success: function(data) {
-       var json = JSON.parse(JSON.stringify(data));
-
+    let antal;
+    if (json) {
+        console.log(json);
        for (let i = 0; i < json.features.length; i++){
-       console.log(json.features[i].properties.Region);
+       //console.log(json.features[i].properties.Region);
            if(json.features[i].properties.Region == lan){
            console.log(json.features[i].properties.Region + ": " + json.features[i].properties.Totalt_antal_fall);
              antal = json.features[i].properties.Totalt_antal_fall;
             }
           }
-        }
-    });
+    }
 
   return antal > 70000 ? "red" :
          antal > 30000 ? "darkOrange" :

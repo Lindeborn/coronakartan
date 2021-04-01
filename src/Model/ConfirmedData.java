@@ -1,7 +1,5 @@
 package Model;
 
-import controller.ConfirmedController;
-
 import java.util.ArrayList;
 
 //TODO 1. Date and time 2. number of confirmed cases -> store this as Confirmed Data object
@@ -67,7 +65,7 @@ public class ConfirmedData
 
     /**
      *
-     * @return  RETURNERAR EMPTY
+     * @return  cases
      */
     @Override
     public String toString() {

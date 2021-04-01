@@ -1,16 +1,24 @@
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
-  }
+}
 
  /* Set the size of the div element that contains the map */
- #map {
+#map {
     position: absolute;
     height: 89.3%;
-    /* The height is 400 pixels */
     width: 100%;
+    background: #000;
     /* The width is the width of the web page */
-  }
+}
+
+.header .map-title {
+    background-color: #fff;
+    font-size: 28px;
+    font-family: bold AvantGarde;
+    font-weight: bold;
+    text-align: center;
+}
 
 
 .stats {

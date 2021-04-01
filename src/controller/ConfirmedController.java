@@ -63,7 +63,5 @@ public class ConfirmedController {
         return cases;
     }
 
-
-
 }
 

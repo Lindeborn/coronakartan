@@ -73,10 +73,11 @@ footer {
     height: 7%;
     border-top: 2px solid black;
     text-align: center;
+    padding: 0px 0px;
 }
 
 .confirmed {
-    font-size: 16px;
+    font-size: 17px;
     font-family: Asap;
     float: left;
     width: calc(100% / 3);
@@ -86,7 +87,7 @@ footer {
 }
 
 .deceased {
-    font-size: 16px;
+    font-size: 17px;
     font-family: Asap;
     float: center;
     width: calc(100% / 3);
@@ -96,7 +97,7 @@ footer {
 }
 
 .hospitalized {
-    font-size: 16px;
+    font-size: 17px;
     font-family: Asap;
     float: right;
     width: calc(100% / 3);

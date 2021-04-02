@@ -43,9 +43,12 @@ function styleMap() {
 }
 
 function setFooter() {
-    document.getElementById("footer").innerHTML += jsonInfo.infected;
-    document.getElementById("deceased").innerHTML += jsonInfo.deceased;
-    document.getElementById("hospitalized").innerHTML += jsonInfo.intensiveCare;
+    document.getElementsByClassName("confirmed")[0].innerHTML += " " + jsonInfo.infected;
+    console.log(jsonInfo.infected);
+    document.getElementsByClassName("deceased")[0].innerHTML += " " + jsonInfo.deceased;
+    console.log(jsonInfo.deceased);
+    document.getElementsByClassName("hospitalized")[0].innerHTML += " " + jsonInfo.intensiveCare;
+    console.log(jsonInfo.intensiveCare);
 }
 
 function initMap(){

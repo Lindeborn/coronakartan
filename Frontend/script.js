@@ -59,6 +59,7 @@ function initMap(){
     center: sweden,
     });
 
+    map.setOptions({ minZoom: 5, maxZoom: 20 });
     map.data.loadGeoJson("sverige-lan.geojson.json");
     styleMap();
     let infoWindow = null;

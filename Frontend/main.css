@@ -12,7 +12,7 @@ body {
  /* Set the size of the div element that contains the map */
 #map {
     position: absolute;
-    height: 84.5%;
+    height: 83%;
     width: 100%;
     border:1px solid black;
     /* The width is the width of the web page */
@@ -26,44 +26,10 @@ body {
 .header .map-title {
     padding-top: 10px;
     margin: 0;
-    font-size: 28px;
+    font-size: 35px;
     font-family: Asap;
     text-align: center;
     font-weight: normal;
-}
-
-.stats {
-    font-size: 18px;
-    position: absolute;
-    padding: 35px 30px;
-    background:#fff;
-    border-radius: 5px;
-    z-index: 999;
-    top:20%;
-    left:4%;
-    width:17%;
-    height:50%;
-    border: 2px solid black;
-    transition: all 5s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.stats .close {
-    position: absolute;
-    top: 0px;
-    right: 3px;
-    transition: all 200ms;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-    background:#fff;
-    border: none;
-    outline: none;
-}
-
-.stats .close:hover {
-    color: #808080;
 }
 
 footer {
@@ -77,19 +43,21 @@ footer {
 }
 
 .confirmed {
-    font-size: 18px;
+    font-size: 17px;
     font-family: Asap;
+    font-weight: bold;
     float: left;
     width: 20%;
     text-align: left;
     display: inline-block;
     padding-top: 14px;
-    padding-left: 30px;
+    padding-left: 50px;
 }
 
 .deceased {
-    font-size: 18px;
+    font-size: 17px;
     font-family: Asap;
+    font-weight: bold;
     float: center;
     width: 20%;
     text-align: center;
@@ -98,14 +66,15 @@ footer {
 }
 
 .hospitalized {
-    font-size: 18px;
+    font-size: 17px;
     font-family: Asap;
+    font-weight: bold;
     float: right;
     width: 20%;
     text-align: right;
     display: inline-block;
     padding-top: 14px;
-    padding-right: 30px;
+    padding-right: 50px;
 }
 
 .progress-bar {
@@ -113,14 +82,22 @@ footer {
     width: 300px;
     height: 20px;
     border: 1px solid #000;
-    margin-left: 70px;
-    top: -20px;
+    margin-left: 100px;
+    top: -18px;
     background: #ffde92;
+}
+
+#barText {
+    font-size: 14px;
+    font-family: Asap;
+    margin-top: -37px;
+    margin-left: 60px;
+    font-weight: bold;
 }
 
 .progress-bar-fill {
     height: 100%;
-    width: 65%;
+    width: 0%;
     background: orange;
     transition: width 0.5s;
 }
@@ -133,33 +110,5 @@ footer {
     align-text: center;
     justify-content: center;
     text-weight: bold;
-}
-
-button.link {
-	background: #965d79;
-	border-radius:4px;
-	border:1px solid #000;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Asap;
-	font-size:14px;
-	font-weight:normal;
-	padding:5px 10px;
-	margin: 12px 5px;
-	text-decoration:none;
-}
-
-button.link:hover {
-	background-color:#aa7690;
-}
-
-button.link:active {
-	position:relative;
-	top:1px;
-}
-
-.hide{
-    display:none;
 }
 

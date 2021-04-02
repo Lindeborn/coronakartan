@@ -1,5 +1,8 @@
 var json;
 var jsonInfo;
+var jsonVacc;
+var vaccTotal;
+const nbrOfCitizens = 10379295;
 var map;
 var footer;
 var antalFall;
@@ -22,7 +25,20 @@ $.ajax({
     jsonInfo = JSON.parse(JSON.stringify(data));
         console.log("Cases: " + jsonInfo.infected);
         setFooter();
-        //document.querySelector('footer').innerHTML = "Totalt antal fall: " + jsonInfo[jsonInfo.length - 1].Cases;
+    }
+});
+
+$.ajax({
+    type: 'GET',
+    url: 'https://covid.ourworldindata.org/data/vaccinations/vaccinations.json',
+    dataType: 'json',
+    success: function(data) {
+    jsonVacc = JSON.parse(JSON.stringify(data));
+    vaccTotal = jsonVacc[150].data[jsonVacc[150].data.length - 1].total_vaccinations;
+    console.log(vaccTotal);
+    console.log(nbrOfCitizens);
+    $(".progress-bar-value").html(Math.round((vaccTotal/nbrOfCitizens)*100) + "%");
+    $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
     }
 });
 
@@ -92,9 +108,7 @@ function initMap(){
 
     // <!--när man klickar på en region ska info dyka upp i inforutan-->
     map.data.addListener("click", (event) => {
-        infoWindow.setContent(
-        JSON.stringify(event.latLng.toJSON(), null, 2)
-      );
+        infoWindow.setContent(getRegionData(event.feature.getProperty('lan_namn')));
     });
     }
 
@@ -119,24 +133,20 @@ function getColor(lan) {
                         "#FFF";
 }
 
-function move() { //det här ska då vara progressbarens funktion (enligt youtube) men?? va
-var i = 0;
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementsByClassName("progress-bar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
+function getRegionData(lan) {
+    for (let i = 0; i < json.features.length; i++){
+       if(json.features[i].properties.Region == lan){
+         antalFall = json.features[i].properties.Totalt_antal_fall;
+         antalAvlidna = json.features[i].properties.Totalt_antal_avlidna;
+         antalIntensiv = json.features[i].properties.Totalt_antal_intensivvårdade;
+        }
       }
-    }
-  }
+      return "Bekräftade fall: " + antalFall.toString()
+             + "<br>Avlidna: " + antalAvlidna.toString()
+             + "<br>Intensivvårdade: " + antalIntensiv.toString();
 }
+
+
 
 
 

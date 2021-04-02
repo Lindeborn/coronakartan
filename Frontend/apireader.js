@@ -25,9 +25,9 @@ getJSON('https://api.covid19api.com/dayone/country/south-africa/status/confirmed
     } else {
 
         var text = `Date: ${data.Date}
-Cases: ${data.Cases}
-Country: ${data.Country}`
+        Cases: ${data.Cases}
+        Country: ${data.Country}`
 
-        console.log(text[0]);
+        console.log(text.toString);
     }
 });

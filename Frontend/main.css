@@ -73,8 +73,36 @@ footer {
     height: 7%;
     border-top: 2px solid black;
     text-align: center;
+}
+
+.confirmed {
     font-size: 16px;
     font-family: Asap;
+    float: left;
+    width: calc(100% / 3);
+    text-align: left;
+    display: inline-block;
+    padding-top: 8px;
+}
+
+.deceased {
+    font-size: 16px;
+    font-family: Asap;
+    float: center;
+    width: calc(100% / 3);
+    text-align: center;
+    display: inline-block;
+    padding-top: 8px;
+}
+
+.hospitalized {
+    font-size: 16px;
+    font-family: Asap;
+    float: right;
+    width: calc(100% / 3);
+    text-align: right;
+    display: inline-block;
+    padding-top: 8px;
 }
 
 button.link {

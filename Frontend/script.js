@@ -1,5 +1,9 @@
 var json;
+var jsonInfo;
 var map;
+var footer;
+var antalFall;
+
 $.ajax({
     type: 'GET',
     url: 'https://services5.arcgis.com/fsYDFeRKu1hELJJs/arcgis/rest/services/FOHM_Covid_19_FME_1/FeatureServer/0/query?f=geojson&where=Region%20%3C%3E%20%27dummy%27&returnGeometry=false&outFields=*',
@@ -7,6 +11,18 @@ $.ajax({
     success: function(data) {
         json = JSON.parse(JSON.stringify(data));
         if (map) styleMap();
+    }
+});
+
+$.ajax({
+    type: 'GET',
+    url: 'https://api.apify.com/v2/key-value-stores/8mRFdwyukavRNCr42/records/LATEST?disableRedirect=true',
+    dataType: 'json',
+    success: function(data) {
+    jsonInfo = JSON.parse(JSON.stringify(data));
+        console.log("Cases: " + jsonInfo.infected);
+        setFooter();
+        //document.querySelector('footer').innerHTML = "Totalt antal fall: " + jsonInfo[jsonInfo.length - 1].Cases;
     }
 });
 
@@ -24,6 +40,12 @@ function styleMap() {
         fillOpacity: 0.7
         };
      });
+}
+
+function setFooter() {
+    document.getElementById("footer").innerHTML += jsonInfo.infected;
+    document.getElementById("deceased").innerHTML += jsonInfo.deceased;
+    document.getElementById("hospitalized").innerHTML += jsonInfo.intensiveCare;
 }
 
 function initMap(){
@@ -74,12 +96,10 @@ function initMap(){
 
 function getColor(lan) {
     let antal;
+
     if (json) {
-        console.log(json);
        for (let i = 0; i < json.features.length; i++){
-       //console.log(json.features[i].properties.Region);
            if(json.features[i].properties.Region == lan){
-           console.log(json.features[i].properties.Region + ": " + json.features[i].properties.Totalt_antal_fall);
              antal = json.features[i].properties.Totalt_antal_fall;
             }
           }
@@ -94,6 +114,7 @@ function getColor(lan) {
          antal > 100 ? "#e8e8e8" :
                         "#5ac8c8";
 }
+
 
 
 

@@ -92,7 +92,7 @@ function initMap(){
     map.data.addListener('mouseover', function(event) {
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {
-        strokeWeight: 4
+        strokeWeight: 3
         });
 
         if(infoWindow!==null){

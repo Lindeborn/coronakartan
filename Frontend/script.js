@@ -134,13 +134,13 @@ function getColor(lan) {
           }
     }
 
-  return antal > 70000 ? "#A10100" :
-         antal > 30000 ? "#DA1F05" :
-         antal > 15000 ? "#F33C04" :
-         antal > 6000 ? "#FE650D" :
-         antal > 3000 ? "#FFC11F" :
-         antal > 1000 ? "#FFF75D" :
-         antal > 100 ? "#FFFBB2" :
+  return antal > 80000 ? "#A10100" :
+         antal > 50000 ? "#DA1F05" :
+         antal > 30000 ? "#F33C04" :
+         antal > 20000 ? "#FE650D" :
+         antal > 10000 ? "#FFC11F" :
+         antal > 2000 ? "#FFF75D" :
+         antal > 500 ? "#FFFBB2" :
                         "#FFF";
 }
 

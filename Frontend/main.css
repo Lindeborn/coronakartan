@@ -103,7 +103,7 @@ footer {
 }
 
 .progress-bar-value {
-    font-size: 12px;
+    font-size: 13px;
     font-family: Asap;
     position: absolute;
     width: 100%;
@@ -111,7 +111,6 @@ footer {
     display: flex;
     align-text: center;
     justify-content: center;
-    margin-top: 1px;
-    font-weight: bold;
+    text-weight: bold;
 }
 

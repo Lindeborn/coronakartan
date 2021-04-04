@@ -2,7 +2,7 @@ var json;
 var jsonInfo;
 var jsonVacc;
 var vaccTotal;
-const nbrOfCitizens = 10379295; //Sveriges befolkning under årsskiftet 2020-2021
+const nbrOfCitizens = 10379295;
 var map;
 var footer;
 var antalFall;
@@ -23,6 +23,7 @@ $.ajax({
     dataType: 'json',
     success: function(data) {
     jsonInfo = JSON.parse(JSON.stringify(data));
+        console.log("Cases: " + jsonInfo.infected);
         setFooter();
     }
 });
@@ -33,10 +34,10 @@ $.ajax({
     dataType: 'json',
     success: function(data) {
     jsonVacc = JSON.parse(JSON.stringify(data));
-    getSweden();
-    console.log("Sweden total: " + vaccTotal);
-    console.log("Sweden citizens: " + nbrOfCitizens);
-    $(".progress-bar-value").html(Math.round(Math.round((vaccTotal/nbrOfCitizens)*100)) + "%");
+    vaccTotal = jsonVacc[150].data[jsonVacc[150].data.length - 1].total_vaccinations;
+    console.log(vaccTotal);
+    console.log(nbrOfCitizens);
+    $(".progress-bar-value").html(Math.round((vaccTotal/nbrOfCitizens)*100) + "%");
     $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
     }
 });
@@ -47,16 +48,6 @@ $(document).ready(function(){
       });
   });
 
-//hämtar antal vaccinerade i Sverige från Our World in Data
-function getSweden() {
-    for(let i = 0; i < jsonVacc.length; i++){
-        if(jsonVacc[i].country == 'Sweden'){
-            vaccTotal = jsonVacc[i].data[jsonVacc[i].data.length - 1].total_vaccinations;
-        }
-    }
-}
-
-//färglägger regionerna utifrån villkoren i getColor
 function styleMap() {
     map.data.setStyle(function(feature){
         return{
@@ -67,14 +58,15 @@ function styleMap() {
      });
 }
 
-//uppdaterar innehållet av hemsidans footer
 function setFooter() {
     document.getElementsByClassName("confirmed")[0].innerHTML += " " + jsonInfo.infected;
+    console.log(jsonInfo.infected);
     document.getElementsByClassName("deceased")[0].innerHTML += " " + jsonInfo.deceased;
+    console.log(jsonInfo.deceased);
     document.getElementsByClassName("hospitalized")[0].innerHTML += " " + jsonInfo.intensiveCare;
+    console.log(jsonInfo.intensiveCare);
 }
 
-//initialiserar världskarta från Google Maps API och ställer in läge och inzoomning
 function initMap(){
     const sweden = {
     lat: 60.187, lng: 15.047 };
@@ -84,11 +76,10 @@ function initMap(){
     });
 
     map.setOptions({ minZoom: 5, maxZoom: 20 });
-    map.data.loadGeoJson("sverige-lan.geojson.json"); //GeoJSON: Sveriges regioner och deras geografiska data
+    map.data.loadGeoJson("sverige-lan.geojson.json");
     styleMap();
     let infoWindow = null;
 
-    //en informationsruta med regionnamn dyker upp när muspekaren vilar på regionen
     map.data.addListener('mouseover', function(event) {
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {
@@ -108,7 +99,6 @@ function initMap(){
         infoWindow.open(map);
     });
 
-    //informationsrutan stängs när muspekaren lämnar regionen
     map.data.addListener('mouseout', function(event) {
         infoWindow.close();
         map.data.overrideStyle(event.feature, {
@@ -116,13 +106,12 @@ function initMap(){
         });
     });
 
-    //när man klickar på en region dyker regional information upp i informationsrutan
+    // <!--när man klickar på en region ska info dyka upp i inforutan-->
     map.data.addListener("click", (event) => {
         infoWindow.setContent(getRegionData(event.feature.getProperty('lan_namn')));
     });
     }
 
-//returnerar färgen som stämmer överens med villkoren
 function getColor(lan) {
     let antal;
 
@@ -144,7 +133,6 @@ function getColor(lan) {
                         "#FFF";
 }
 
-//hämtar regional information från FHM för den region som användaren har klickat på
 function getRegionData(lan) {
     for (let i = 0; i < json.features.length; i++){
        if(json.features[i].properties.Region == lan){

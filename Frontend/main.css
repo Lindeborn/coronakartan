@@ -158,7 +158,7 @@ footer {
 }
 
 .sidePanel {
-   height: 83.1%; /* Specify a height */
+   height: 83.1vh; /* Specify a height */
    width: 0; /* 0 width - change this with JavaScript */
    position: fixed; /* Stay in place */
    z-index: 1; /* Stay on top */

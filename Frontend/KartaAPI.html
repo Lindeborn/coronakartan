@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="icon" href="https://www.brainpop.com//image_library/287000/287812_256x256.png">
     <link href="main.css" rel="stylesheet" type="text/css">
+
     <title>Coronakartan</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
@@ -21,12 +22,12 @@
         <p id="barText">Andel vaccinerade svenskar (minst en dos)</p>
     </div>
     <div class="menu">
-        <button class="dataBtn" onclick="goToAPI()"> Data</button>
         <button class="color-definition" onclick="toggleBtnColor()"> Färgernas betydelse</button>
         <button class="details" onclick="toggleBtnDetails()"> Vaccininformation</button>
     </div>
     </div>
 </div>
+
 <div id="sidePanelID" class="sidePanel">
     <div id="colorsPnl" class="colorPanel">
         <img src="antalFall.jpg" id="colorDef" alt="färgförklaring">
@@ -54,7 +55,8 @@
 
     </div>
 </div>
-<!--The div element for the map -->
+
+<!-- kartans div-element -->
 <div id="map">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLesBtB1B8mYKBkWwSwg90weWlVRo-xio&callback=initMap&libraries=&v=weekly" defer>
     </script>

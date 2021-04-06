@@ -1,4 +1,3 @@
-var json;
 var jsonInfo;
 var jsonVacc;
 var peopleVacc;
@@ -49,14 +48,7 @@ $.ajax({
     }
 });
 
-
-$(document).ready(function(){
-    $("color-definition").click(function(){
-      $(".item").toggleClass("hide stats");
-      });
-  });
-
-//hämtar antal vaccinerade i Sverige från Our World in Data
+//hämtar vaccinationsdata (Sverige) från Our World in Data
 function getSweden() {
     for(let i = 0; i < jsonVacc.length; i++){
         if(jsonVacc[i].country == 'Sweden'){
@@ -171,6 +163,7 @@ function getRegionData(lan) {
              + "<br>Intensivvårdade: " + antalIntensiv.toString();
 }
 
+//när användaren trycker på knappen "Färgernas betydelse" dyker panelen upp och när de trycker igen försvinner den
 function toggleBtnColor() {
   if (colorClicked) {
     document.getElementById("sidePanelID").style.width = "0";
@@ -184,6 +177,7 @@ function toggleBtnColor() {
   }
 }
 
+//när användaren trycker på knappen "Vaccininformation" dyker panelen upp och när de trycker igen försvinner den
 function toggleBtnDetails() {
   if (detailsClicked) {
     document.getElementById("sidePanelID").style.width = "0";
@@ -196,11 +190,6 @@ function toggleBtnDetails() {
     colorClicked = false;
   }
 }
-
-function goToAPI() {
-    alert("hej");
-}
-
 
 
 

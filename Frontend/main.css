@@ -1,28 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap'); /* Googles typsnitt Asap */
 
 body {
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden; /* göm vertikal scrollbar */
+    overflow-x: hidden; /* göm horisontell scrollbar */
     height: 100vh;
     width: 100%;
     padding: 0;
     margin: 0;
 }
 
- /* Set the size of the div element that contains the map */
+ /* kartans höjd, bredd och kantlinje */
 #map {
     position: absolute;
     height: 83.1vh;
     width: 100%;
     border:1px solid black;
-    /* The width is the width of the web page */
+    /* bredden är hemsidans bredd */
 }
 
+/* hemsidans header, "vh" för att passa fler skärmar */
 .header {
     height: 9.7vh;
     background: linear-gradient(90deg, rgba(255,241,130,1) 0%, rgba(255,199,122,1) 35%, rgba(255,178,84,1) 100%);
 }
 
+/* headerns titel ("coronaTracker") */
 .header .map-title {
     padding-top: 10px;
     margin: 0;
@@ -32,6 +34,7 @@ body {
     font-weight: normal;
 }
 
+/* footer, delen längst ner på hemsidan */
 footer {
     background: linear-gradient(90deg, rgba(255,241,130,1) 0%, rgba(255,199,122,1) 35%, rgba(255,178,84,1) 100%);
     position: absolute;
@@ -41,6 +44,7 @@ footer {
     text-align: center;
 }
 
+/* antal bekräftade fall i Sverige */
 .confirmed {
     font-size: 17px;
     font-family: Asap;
@@ -53,6 +57,7 @@ footer {
     padding-left: 50px;
 }
 
+/* antal avlidna i Sverige */
 .deceased {
     font-size: 17px;
     font-family: Asap;
@@ -64,6 +69,7 @@ footer {
     padding-top: 14px;
 }
 
+/* antal på intensivvård i Sverige */
 .hospitalized {
     font-size: 17px;
     font-family: Asap;
@@ -76,12 +82,13 @@ footer {
     padding-right: 50px;
 }
 
+/* en förloppsindikator som illustrerar andelen svenskar som vaccinerats hittils (en eller två doser) */
 .progress-bar {
     position: relative;
     width: 300px;
     height: 18px;
     border: 1px solid #000;
-    margin-left: 150px;
+    margin-left: 130px;
     top: -18px;
     background: #ffde92;
 }
@@ -114,6 +121,7 @@ footer {
     font-weight: bold;
 }
 
+/* knapp som öppnar upp en beskrivning av kartans färger */
 .color-definition {
     font-size: 14px;
     font-family: Asap;
@@ -136,6 +144,7 @@ footer {
     outline: none;
 }
 
+/* knapp som öppnar upp en tabell med ytterligare vaccininformation */
 .details {
     font-size: 14px;
     font-family: Asap;
@@ -158,75 +167,55 @@ footer {
     outline: none;
 }
 
-.dataBtn {
-    font-size: 14px;
-    font-family: Asap;
-    font-weight: bold;
-    float: left;
-    margin-top: -40px;
-    margin-left: 40px;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
-    padding: 7px 15px;
-    transition: 0.4s;
-}
-
-.dataBtn:hover {
-    background: #fff989;
-}
-
-.dataBtn:focus {
-    outline: none;
-}
-
+/* panel som består av färgbeskrivning och vaccininformation */
 .sidePanel {
-   height: 83.1vh; /* Specify a height */
-   width: 0; /* 0 width - change this with JavaScript */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Stay on top */
+   height: 83.1vh; /* samma höjd som kartan */
+   width: 0; /* ändras med JavaScript */
+   position: fixed;
+   z-index: 1;
    top: 9.7vh;
    right: 0;
-   background-color: #fee485; /* Black*/
-   overflow: hidden; /* Disable horizontal scroll */
-   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+   background-color: #fee485;
+   overflow: hidden; /* göm horisontell scrollbar*/
+   transition: 0.5s; /* slide-effekt */
    border: solid 1px; black;
 }
 
+/* storlek på färgbeskrivningen */
 #colorDef {
     width: 400px;
     height: 600px;
 }
 
-#cat {
-    width: 400px;
-    height: 600px;
-}
-
+/* tabellens innehåll */
 th, td {
     padding: 16px;
     font-family: Asap;
     font-size: 16px;
 }
 
+/* panel med vaccininformation */
 #detailsPnl {
     background: #fee485;
     height: 83.1vh;
     padding: 40px 40px;
 }
 
+/* datum för senast uppdaterad information */
 .sidePanel .detailsPanel .date {
     position: relative;
+    color: #9f4000;
     float: right;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 13px;
     font-family: Asap;
-    margin-right: 5px;
+    margin-right: -20px;
     margin-top: -20px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 
 }
 
+/* stilen på vaccininformationen som hämtats */
 #fullyVacc, #dailyVacc, #totalVacc, #peopleVacc {
     color: #ff5a00;
     font-weight: bold;

@@ -21,8 +21,9 @@
         <p id="barText">Andel vaccinerade svenskar (minst en dos)</p>
     </div>
     <div class="menu">
+        <button class="dataBtn" onclick="goToAPI()"> Data</button>
         <button class="color-definition" onclick="toggleBtnColor()"> Färgernas betydelse</button>
-        <button class="details" onclick="toggleBtnDetails()"> Detaljer</button>
+        <button class="details" onclick="toggleBtnDetails()"> Vaccininformation</button>
     </div>
     </div>
 </div>
@@ -31,7 +32,24 @@
         <img src="antalFall.jpg" id="colorDef" alt="färgförklaring">
     </div>
     <div id="detailsPnl" class="detailsPanel">
-        <img src="kattfan.jpg" id="cat" alt="en KATT">
+        <table id="vaccineTable" style="width:100%">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+        </table>
+
     </div>
 </div>
 <!--The div element for the map -->

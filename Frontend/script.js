@@ -51,7 +51,7 @@ $(document).ready(function(){
 function getSweden() {
     for(let i = 0; i < jsonVacc.length; i++){
         if(jsonVacc[i].country == 'Sweden'){
-            vaccTotal = jsonVacc[i].data[jsonVacc[i].data.length - 1].total_vaccinations;
+            vaccTotal = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_vaccinated;
         }
     }
 }
@@ -184,6 +184,9 @@ function toggleBtnDetails() {
   }
 }
 
+function goToAPI() {
+    alert("hej");
+}
 
 
 

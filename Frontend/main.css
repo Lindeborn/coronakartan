@@ -81,7 +81,7 @@ footer {
     width: 300px;
     height: 18px;
     border: 1px solid #000;
-    margin-left: 120px;
+    margin-left: 150px;
     top: -18px;
     background: #ffde92;
 }
@@ -120,11 +120,12 @@ footer {
     font-weight: bold;
     float: right;
     margin-top: -40px;
-    margin-right: 200px;
+    margin-right: 210px;
     border: none;
     background-color: inherit;
     cursor: pointer;
     padding: 7px 15px;
+    transition: 0.4s;
 }
 
 .color-definition:hover {
@@ -142,11 +143,12 @@ footer {
     font-weight: bold;
     float: right;
     margin-top: -40px;
-    margin-right: 100px;
+    margin-right: 40px;
     border: none;
     background-color: inherit;
     cursor: pointer;
     padding: 7px 15px;
+    transition: 0.4s;
 }
 
 .details:hover {
@@ -157,12 +159,34 @@ footer {
     outline: none;
 }
 
+.dataBtn {
+    font-size: 14px;
+    font-family: Asap;
+    font-weight: bold;
+    float: left;
+    margin-top: -40px;
+    margin-left: 40px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 7px 15px;
+    transition: 0.4s;
+}
+
+.dataBtn:hover {
+    background: #fff989;
+}
+
+.dataBtn:focus {
+    outline: none;
+}
+
 .sidePanel {
    height: 83.1vh; /* Specify a height */
    width: 0; /* 0 width - change this with JavaScript */
    position: fixed; /* Stay in place */
    z-index: 1; /* Stay on top */
-   top: 70px;
+   top: 9.7vh;
    right: 0;
    background-color: #111; /* Black*/
    overflow: hidden; /* Disable horizontal scroll */
@@ -178,4 +202,12 @@ footer {
 #cat {
     width: 400px;
     height: 600px;
+}
+
+th, td {
+  padding: 15px;
+}
+
+#vaccineTable {
+    background: orange;
 }

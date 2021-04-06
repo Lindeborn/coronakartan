@@ -2,6 +2,8 @@ var json;
 var jsonInfo;
 var jsonVacc;
 var vaccTotal;
+var date;
+var fullyVacc;
 var map;
 var footer;
 var antalFall;
@@ -37,6 +39,8 @@ $.ajax({
     getSweden();
     $(".progress-bar-value").html(Math.round(Math.round((vaccTotal/nbrOfCitizens)*100)) + "%");
     $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
+    document.getElementsByClassName("date")[0].innerHTML += date;
+    document.getElementById("fullyVacc").innerHTML += fullyVacc;
     }
 });
 
@@ -52,6 +56,8 @@ function getSweden() {
     for(let i = 0; i < jsonVacc.length; i++){
         if(jsonVacc[i].country == 'Sweden'){
             vaccTotal = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_vaccinated;
+            date = jsonVacc[i].data[jsonVacc[i].data.length - 1].date;
+            fullyVacc = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_fully_vaccinated;
         }
     }
 }
@@ -187,6 +193,7 @@ function toggleBtnDetails() {
 function goToAPI() {
     alert("hej");
 }
+
 
 
 

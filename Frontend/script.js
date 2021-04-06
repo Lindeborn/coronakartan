@@ -1,9 +1,11 @@
 var json;
 var jsonInfo;
 var jsonVacc;
-var vaccTotal;
+var peopleVacc;
 var date;
 var fullyVacc;
+var dailyVacc;
+var totalVacc;
 var map;
 var footer;
 var antalFall;
@@ -37,10 +39,13 @@ $.ajax({
     success: function(data) {
     jsonVacc = JSON.parse(JSON.stringify(data));
     getSweden();
-    $(".progress-bar-value").html(Math.round(Math.round((vaccTotal/nbrOfCitizens)*100)) + "%");
-    $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
+    $(".progress-bar-value").html(Math.round(Math.round((peopleVacc/nbrOfCitizens)*100)) + "%");
+    $(".progress-bar-fill").css('width', (peopleVacc/nbrOfCitizens)*100 + "%");
     document.getElementsByClassName("date")[0].innerHTML += date;
     document.getElementById("fullyVacc").innerHTML += fullyVacc;
+    document.getElementById("dailyVacc").innerHTML += dailyVacc;
+    document.getElementById("peopleVacc").innerHTML += peopleVacc;
+    document.getElementById("totalVacc").innerHTML += totalVacc;
     }
 });
 
@@ -55,9 +60,11 @@ $(document).ready(function(){
 function getSweden() {
     for(let i = 0; i < jsonVacc.length; i++){
         if(jsonVacc[i].country == 'Sweden'){
-            vaccTotal = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_vaccinated;
+            peopleVacc = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_vaccinated;
             date = jsonVacc[i].data[jsonVacc[i].data.length - 1].date;
             fullyVacc = jsonVacc[i].data[jsonVacc[i].data.length - 1].people_fully_vaccinated;
+            dailyVacc = jsonVacc[i].data[jsonVacc[i].data.length - 1].daily_vaccinations;
+            totalVacc = jsonVacc[i].data[jsonVacc[i].data.length - 1].total_vaccinations;
         }
     }
 }
@@ -183,7 +190,7 @@ function toggleBtnDetails() {
     detailsClicked = false;
   } else {
     document.getElementById("sidePanelID").style.width = "400px";
-    document.getElementById("detailsPnl").style.display = "block";
+    document.getElementById("detailsPnl").style.display = "table";
     document.getElementById("colorsPnl").style.display = "none";
     detailsClicked = true;
     colorClicked = false;

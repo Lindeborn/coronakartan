@@ -204,9 +204,9 @@ footer {
 }
 
 th, td {
-    padding: 15px;
+    padding: 16px;
     font-family: Asap;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 #detailsPnl {
@@ -216,12 +216,18 @@ th, td {
 }
 
 .sidePanel .detailsPanel .date {
+    position: relative;
     float: right;
     font-weight: bold;
     font-size: 15px;
     font-family: Asap;
     margin-right: 5px;
     margin-top: -20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 
+}
+
+#fullyVacc, #dailyVacc, #totalVacc, #peopleVacc {
+    color: #ff5a00;
+    font-weight: bold;
 }

@@ -2,10 +2,12 @@ var json;
 var jsonInfo;
 var jsonVacc;
 var vaccTotal;
-const nbrOfCitizens = 10379295; //Sveriges befolkning under årsskiftet 2020-2021
 var map;
 var footer;
 var antalFall;
+var colorClicked = false;
+var detailsClicked = false;
+const nbrOfCitizens = 10379295; //Sveriges befolkning under årsskiftet 2020-2021
 
 $.ajax({
     type: 'GET',
@@ -42,7 +44,7 @@ $.ajax({
 });
 
 $(document).ready(function(){
-    $("button").click(function(){
+    $("color-definition").click(function(){
       $(".item").toggleClass("hide stats");
       });
   });
@@ -137,7 +139,7 @@ function getColor(lan) {
   return antal > 80000 ? "#A10100" :
          antal > 50000 ? "#DA1F05" :
          antal > 30000 ? "#F33C04" :
-         antal > 20000 ? "#FE650D" :
+         antal > 20000 ? "#FE7D0D" :
          antal > 10000 ? "#FFC11F" :
          antal > 2000 ? "#FFF75D" :
          antal > 500 ? "#FFFBB2" :
@@ -156,6 +158,32 @@ function getRegionData(lan) {
       return "Bekräftade fall: " + antalFall.toString()
              + "<br>Avlidna: " + antalAvlidna.toString()
              + "<br>Intensivvårdade: " + antalIntensiv.toString();
+}
+
+function toggleBtnColor() {
+  if (colorClicked) {
+    document.getElementById("sidePanelID").style.width = "0";
+    colorClicked = false;
+  } else {
+    document.getElementById("sidePanelID").style.width = "400px";
+    document.getElementById("detailsPnl").style.display = "none";
+    document.getElementById("colorsPnl").style.display = "block";
+    colorClicked = true;
+    detailsClicked = false;
+  }
+}
+
+function toggleBtnDetails() {
+  if (detailsClicked) {
+    document.getElementById("sidePanelID").style.width = "0";
+    detailsClicked = false;
+  } else {
+    document.getElementById("sidePanelID").style.width = "400px";
+    document.getElementById("detailsPnl").style.display = "block";
+    document.getElementById("colorsPnl").style.display = "none";
+    detailsClicked = true;
+    colorClicked = false;
+  }
 }
 
 

@@ -15,11 +15,23 @@
 <body>
 <div class="header">
     <h3 class="map-title">coronakartan</h3>
-        <div class="progress-bar">
-            <div class="progress-bar-value"></div>
-            <div class="progress-bar-fill"></div>
-            <p id="barText">Andel vaccinerade svenskar</p>
-        </div>
+    <div class="progress-bar">
+        <div class="progress-bar-value"></div>
+        <div class="progress-bar-fill"></div>
+        <p id="barText">Andel vaccinerade svenskar</p>
+    </div>
+    <div class="menu">
+        <button class="color-definition" onclick="toggleBtnColor()"> Färgernas betydelse</button>
+        <button class="details" onclick="toggleBtnDetails()"> Detaljer</button>
+    </div>
+    </div>
+</div>
+<div id="sidePanelID" class="sidePanel">
+    <div id="colorsPnl" class="colorPanel">
+        <img src="possum.jpg" id="possum" alt="en pungråtta">
+    </div>
+    <div id="detailsPnl" class="detailsPanel">
+        <img src="kattfan.jpg" id="cat" alt="en KATT">
     </div>
 </div>
 <!--The div element for the map -->

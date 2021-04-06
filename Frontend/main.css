@@ -19,7 +19,7 @@ body {
 }
 
 .header {
-    min-height: 60px !important;
+    min-height: 70px !important;
     background: linear-gradient(90deg, rgba(255,241,130,1) 0%, rgba(255,199,122,1) 35%, rgba(255,178,84,1) 100%);
 }
 
@@ -114,3 +114,68 @@ footer {
     font-weight: bold;
 }
 
+.color-definition {
+    font-size: 14px;
+    font-family: Asap;
+    font-weight: bold;
+    float: right;
+    margin-top: -40px;
+    margin-right: 200px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 7px 15px;
+}
+
+.color-definition:hover {
+    background: #ffbf6b;
+}
+
+.color-definition:focus {
+    outline: none;
+}
+
+
+.details {
+    font-size: 14px;
+    font-family: Asap;
+    font-weight: bold;
+    float: right;
+    margin-top: -40px;
+    margin-right: 100px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 7px 15px;
+}
+
+.details:hover {
+    background: #ffbf6b;
+}
+
+.details:focus {
+    outline: none;
+}
+
+.sidePanel {
+   height: 83.1%; /* Specify a height */
+   width: 0; /* 0 width - change this with JavaScript */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Stay on top */
+   top: 70px;
+   right: 0;
+   background-color: #111; /* Black*/
+   overflow-x: hidden; /* Disable horizontal scroll */
+   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+   border: solid 1px; black;
+}
+
+#possum {
+    width: 400px;
+    height: 600px;
+}
+
+#cat {
+    width: 400px;
+    height: 600px;
+}

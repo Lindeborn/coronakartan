@@ -19,7 +19,7 @@ body {
 }
 
 .header {
-    min-height: 70px !important;
+    height: 9.9%;
     background: linear-gradient(90deg, rgba(255,241,130,1) 0%, rgba(255,199,122,1) 35%, rgba(255,178,84,1) 100%);
 }
 

@@ -9,7 +9,10 @@ var colorClicked = false;
 var detailsClicked = false;
 const nbrOfCitizens = 10379295; //Sveriges befolkning under årsskiftet 2020-2021
 
-//datakälla: folkhälsomyndigheten
+/*
+hämtar regional data om COVID-19 i JSON-form
+datakälla: folkhälsomyndigheten
+*/
 $.ajax({
     type: 'GET',
     url: 'https://api.apify.com/v2/key-value-stores/8mRFdwyukavRNCr42/records/LATEST?disableRedirect=true',
@@ -21,7 +24,10 @@ $.ajax({
     }
 });
 
-//datakälla: Our World in Data,
+/*
+hämtar vaccinationsdata i JSON-form
+datakälla: folkhälsomyndigheten via Our World in Data
+*/
 $.ajax({
     type: 'GET',
     url: 'https://covid.ourworldindata.org/data/vaccinations/vaccinations.json',
@@ -33,6 +39,7 @@ $.ajax({
     $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
     }
 });
+
 
 $(document).ready(function(){
     $("color-definition").click(function(){

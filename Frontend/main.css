@@ -87,10 +87,10 @@ footer {
 }
 
 #barText {
-    font-size: 14px;
+    font-size: 13px;
     font-family: Asap;
     margin-top: -37px;
-    margin-left: 60px;
+    margin-left: 30px;
     font-weight: bold;
 }
 
@@ -165,12 +165,12 @@ footer {
    top: 70px;
    right: 0;
    background-color: #111; /* Black*/
-   overflow-x: hidden; /* Disable horizontal scroll */
+   overflow: hidden; /* Disable horizontal scroll */
    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
    border: solid 1px; black;
 }
 
-#possum {
+#colorDef {
     width: 400px;
     height: 600px;
 }

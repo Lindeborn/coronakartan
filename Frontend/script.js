@@ -9,26 +9,19 @@ var colorClicked = false;
 var detailsClicked = false;
 const nbrOfCitizens = 10379295; //Sveriges befolkning under årsskiftet 2020-2021
 
-$.ajax({
-    type: 'GET',
-    url: 'https://services5.arcgis.com/fsYDFeRKu1hELJJs/arcgis/rest/services/FOHM_Covid_19_FME_1/FeatureServer/0/query?f=geojson&where=Region%20%3C%3E%20%27dummy%27&returnGeometry=false&outFields=*',
-    dataType: 'json',
-    success: function(data) {
-        json = JSON.parse(JSON.stringify(data));
-        if (map) styleMap();
-    }
-});
-
+//datakälla: folkhälsomyndigheten
 $.ajax({
     type: 'GET',
     url: 'https://api.apify.com/v2/key-value-stores/8mRFdwyukavRNCr42/records/LATEST?disableRedirect=true',
     dataType: 'json',
     success: function(data) {
-    jsonInfo = JSON.parse(JSON.stringify(data));
+        jsonInfo = JSON.parse(JSON.stringify(data));
+        if (map) styleMap();
         setFooter();
     }
 });
 
+//datakälla: Our World in Data,
 $.ajax({
     type: 'GET',
     url: 'https://covid.ourworldindata.org/data/vaccinations/vaccinations.json',
@@ -36,8 +29,6 @@ $.ajax({
     success: function(data) {
     jsonVacc = JSON.parse(JSON.stringify(data));
     getSweden();
-    console.log("Sweden total: " + vaccTotal);
-    console.log("Sweden citizens: " + nbrOfCitizens);
     $(".progress-bar-value").html(Math.round(Math.round((vaccTotal/nbrOfCitizens)*100)) + "%");
     $(".progress-bar-fill").css('width', (vaccTotal/nbrOfCitizens)*100 + "%");
     }
@@ -128,10 +119,10 @@ function initMap(){
 function getColor(lan) {
     let antal;
 
-    if (json) {
-       for (let i = 0; i < json.features.length; i++){
-           if(json.features[i].properties.Region == lan){
-             antal = json.features[i].properties.Totalt_antal_fall;
+    if (jsonInfo) {
+       for (let i = 0; i < jsonInfo.infectedByRegion.length; i++){
+           if(jsonInfo.infectedByRegion[i].region == lan){
+             antal = jsonInfo.infectedByRegion[i].infectedCount;
             }
           }
     }
@@ -148,11 +139,11 @@ function getColor(lan) {
 
 //hämtar regional information från FHM för den region som användaren har klickat på
 function getRegionData(lan) {
-    for (let i = 0; i < json.features.length; i++){
-       if(json.features[i].properties.Region == lan){
-         antalFall = json.features[i].properties.Totalt_antal_fall;
-         antalAvlidna = json.features[i].properties.Totalt_antal_avlidna;
-         antalIntensiv = json.features[i].properties.Totalt_antal_intensivvårdade;
+    for (let i = 0; i < jsonInfo.infectedByRegion.length; i++){
+       if(jsonInfo.infectedByRegion[i].region == lan){
+         antalFall = jsonInfo.infectedByRegion[i].infectedCount;
+         antalAvlidna = jsonInfo.infectedByRegion[i].deathCount;
+         antalIntensiv = jsonInfo.infectedByRegion[i].intensiveCareCount;
         }
       }
       return "Bekräftade fall: " + antalFall.toString()
